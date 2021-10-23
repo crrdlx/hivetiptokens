@@ -106,10 +106,112 @@ h6 {
 <p>BEER</p>
 <p>ENGAGE</p>
 <p>LUV</p>
+get current h-e price
+convert to usd
+times usual amount tipped
 <p>PIZZA</p>
 <p>WINEX</p>
 
+All prices and values are based on the most recent trade.</small></small>
+<center>
+  <big>
+<div id="LUVPrice"/>Loading last traded price...</div>
+<div id="CurrentPrice"/></div>
+  </big>
+<span style="color:firebrick">HIVE value of one LUV</span>
+<p>
+</center>
+<center>
+  <big>
+<div id="HIVEPrice"/>Loading last traded price...</div>
+<div id="USDCurrentPrice"/></div>
+  </big>
+<span style="color:firebrick">value of 1 HIVE in USD</span>
+<p>
+</center>
+<p>
 
 
-  </body>
+<!-- Fetch HIVE price in USD -->
+<script language="JavaScript">
+  $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data){
+            $("#HIVEPrice").text(data["USD"].toFixed(2));
+        }).fail(function( dat, textStatus, error ) {
+                    var err = textStatus + ", " + error;
+                    alert(err);
+        });
+
+var USDCurrentPrice = document.getElementById('HIVEPrice');
+    USDCurrentPrice.innerHTML = FetchedHIVEPrice.innerHTML;
+
+</script>
+<!-- End HIVE price fetch -->
+
+<!-- Fetch Hive Engine token price and conversion engine -->
+<script language="JavaScript">
+  $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LUV", function(data){
+            $("#LUVPrice").text(data[0].closePrice).toFixed(2);
+        }).fail(function( dat, textStatus, error ) {
+                    var err = textStatus + ", " + error;
+                    alert(err);
+        });
+
+var CurrentPrice = document.getElementById('LUVPrice');
+    CurrentPrice.innerHTML = HETPrice.innerHTML;
+
+/*
+cm/inch/feet converter - credit must stay intact for use
+By Ada Shimar ada@chalktv.com
+For this script and more,
+Visit http://javascriptkit.com
+*/
+function HEconvert(){
+with (document.HEunitconverter){
+LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML);
+USDConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+hivevalueonehetoken.value = (CurrentPrice.innerHTML);
+usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+}
+}
+
+function LiveConvert(){
+with (document.HEunitconverter){
+LiveConvert.value = (CurrentPrice.innerHTML);
+}
+}
+
+function USDConvert(){
+with (document.HEunitconverter){
+LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+}
+}
+
+function hivevalueonehetoken(){
+with (document.HEunitconverter){
+hivevalueonehetoken.value = (CurrentPrice.innerHTML);
+}
+}
+
+function usdvalueonehetoken(){
+with (document.HEunitconverter){
+usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+}
+}
+</script>
+<!-- End Hive Engine token price and conversion engine -->
+
+<p>
+<a href="javascript:document.location.reload();"
+ONMOUSEOVER="window.status='Refresh'; return true"
+ONMOUSEOUT="window.status='ahh...success'">
+<center><img src="../images/refresh.png" 
+width="85" height="" border="0" /></a></center>
+<p>
+
+
+<p>
+  <center><a href="https://hive-engine.com/?p=market&t=LUV" target="_blank"><img src="../images/LUV.png" border="0" width="38"></a></center>
+
+
+</body>
 </html>
