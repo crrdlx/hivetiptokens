@@ -103,43 +103,24 @@
              <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 <body>
+  <a name="home_title"></a>
+  <h1 id="H-E-tip-tokens"><strong>Hive-Engine </strong><span style="color: rgb(231, 2, 2)">tip tokens</span></h1>
+  
+  <p style="text-align:center">When you share or tip on H-E, here's how much the token is currently worth:</p>
+  
+  <p>ALIVE</p>
+  <p>BBH</p>
+  <p>BEER</p>
+  <p>ENGAGE</p>
+  <p>LUV</p>
+  
+  <p>PIZZA</p>
+  <p>WINEX</p>
+
+
             <big>
             <br>
-            <center>
-            <div class="w3-container">
-              <a href="../index.html" class="w3-button w3-margin-bottom  w3-round-large w3-red">HE converter</a>
-            </div>
-            </center>
-            <p align="center">
-            <small>LUV token &#8594; USD conversion<br></small>
-
-            <table border="0" cellpadding="0" cellspacing="0" width="" align="center">
-            <form name="HEunitconverter">
-            <tbody>
-            <tr>
-              <td><input type="number" onkeyup="HEconvert()" value="" name="HEtoken" size="12"><small><font color="red"> enter a <big>LUV</big> amount</small></td>
-            </tr>
-            <tr>
-              <td><input type="number" onkeyup="LiveConvert()" value="$" name="LiveConvert" size="12"> &#8776; HIVE</td>
-            </tr>
-            <tr>
-              <td><input type="number" onkeyup="USDConvert()" value="$" name="USDConvert" size="12"> &#8776; USD</td>
-            </tr>
-            <tr>
-              <td><input type="number" onload="hivevalueonehetoken()" value="$" name="hivevalueonehetoken" size="12"><small> value of 1 LUV (in HIVE)</small></td>
-            </tr>
-            <tr>
-              <td><input type="number" onload="usdvalueonehetoken()" value="$" name="usdvalueonehetoken" size="12"><small> value of 1 LUV (in USD)</small></td>
-            </tr>
-            </tbody></form></table>
-            <p align="center">
-            
-            <small><small>
-            <a href="" class="w3-button w3-margin-bottom  w3-round-large w3-gray"> LUV &#8594; USD conversion</a> <a href="../FiatToHE/USDtoLUV.html" class="w3-button w3-margin-bottom  w3-round-large w3-black">USD &#8594; LUV conversion</a>
-            <br>
-            <a href="../HIVEtoHE/HIVEtoLUV.html" class="w3-button w3-margin-bottom  w3-round-large w3-black">HIVE &#8594; LUV conversion</a><br>
-            All prices and values are based on the most recent trade.</small></small>
-            <center>
+           
               <big>
             <div id="LUVPrice"/>Loading last traded price...</div>
             <div id="CurrentPrice"/></div>
@@ -185,44 +166,7 @@
             var CurrentPrice = document.getElementById('LUVPrice');
                 CurrentPrice.innerHTML = HETPrice.innerHTML;
             
-            /*
-            cm/inch/feet converter - credit must stay intact for use
-            By Ada Shimar ada@chalktv.com
-            For this script and more,
-            Visit http://javascriptkit.com
-            */
-            function HEconvert(){
-            with (document.HEunitconverter){
-            LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML);
-            USDConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-            hivevalueonehetoken.value = (CurrentPrice.innerHTML);
-            usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-            }
-            }
-            
-            function LiveConvert(){
-            with (document.HEunitconverter){
-            LiveConvert.value = (CurrentPrice.innerHTML);
-            }
-            }
 
-            function USDConvert(){
-            with (document.HEunitconverter){
-            LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-            }
-            }
-
-            function hivevalueonehetoken(){
-            with (document.HEunitconverter){
-            hivevalueonehetoken.value = (CurrentPrice.innerHTML);
-            }
-            }
-
-            function usdvalueonehetoken(){
-            with (document.HEunitconverter){
-            usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-            }
-            }
             </script>
             <!-- End Hive Engine token price and conversion engine -->
             
@@ -236,24 +180,11 @@
             
             
             <p>
-              <center><a href="https://hive-engine.com/?p=market&t=LUV" target="_blank"><img src="../images/LUV.png" border="0" width="38"></a></center>
+              <center>Made with <a href="https://peakd.com/@luvshares/about" target="_blank"><img src="../images/LUV.png" border="0" width="38"></a> by <a href="https://peakd.com/@crrdlx/about" target="_blank">crrdlx</a></center>
 
 
-<!-- Default Statcounter code for HEconverter
-https://crrdlx.mywebcommunity.org/heconverter/index.html -->
-<script type="text/javascript">
-    var sc_project=12518764; 
-    var sc_invisible=1; 
-    var sc_security="e447a16f"; 
-    </script>
-    <script type="text/javascript"
-    src="https://www.statcounter.com/counter/counter.js"
-    async></script>
-    <noscript><div class="statcounter"><a title="Web Analytics"
-    href="https://statcounter.com/" target="_blank"><img
-    class="statcounter"
-    src="https://c.statcounter.com/12518764/0/e447a16f/1/"
-    alt="Web Analytics"></a></div></noscript>
-    <!-- End of Statcounter Code -->
+<!-- Default Statcounter code -->
+
+<!-- End of Statcounter Code -->
 </body>
 </html>
