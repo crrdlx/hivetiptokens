@@ -1,214 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>Hive Tip Tokens Current Values</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple converter to switch Hive-Engine token prices to fiat currency prices and back again.">
+    <title>LUV - HEconverter</title>
+    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-    body {
-      background: #fefefe;
-      max-width: 750px;
-      margin: 40px auto;
-      padding: 0 22px;
-      font: 18px/1.5 -apple-system, BlinkMacSystemFont, /* MacOS and iOS */
-                   'avenir next', avenir, /* MacOS and iOS */
-                   'Segoe UI', /* Windows */
-                   'lucida grande', /* Older MacOS */
-                   'helvetica neue', helvetica, /* Older MacOS */
-                   'Fira Sans', /* Firefox OS */
-                   roboto, noto, /* Google stuff */
-                   'Droid Sans', /* Old Google stuff */
-                   cantarell, oxygen, ubuntu, /* Linux stuff */
-                   'franklin gothic medium', 'century gothic', /* Windows stuff */
-                   'Liberation Sans', /* Linux */
-                   sans-serif; /* Everything else */;
-      color: #222;
-    }
-
-supersize {  /* this is fancified text, but it can be named as anything */
-    font-style: normal;
-    font-size: 120%;
-    color: #ff8c00;
-    text-transform: uppercase;
-}
-      
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #333333;
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 1em;
-  margin-top: 2em;
-}
-h1 {
-  font-size: 2.2em;
-  text-align: center;
-}
-h2 {
-  font-size: 1.8em;
-  border-bottom: solid 0.1rem firebrick;
-}
-h3 {
-  font-size: 1.5em;
-}
-h4 {
-  font-size: 1.3em;
-  text-decoration: underline;
-}
-h5 {
-  font-size: 1.2em;
-  font-style: italic;
-}
-h6 {
-  font-size: 1.1em;
-  margin-bottom: 0.5rem;
-  color: #555555;
-}
-    img.centered {
-    display: block;
-    margin-left: auto;
-    margin-right: auto }
-}
-    }</style>
-
-<style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  </style>
-  </head>
-
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/layouts/side-menu.css">
+        <!--<![endif]-->
+<STYLE>
+            html {
+              font-size: medium;
+            }
+            body {
+              background-color: #f6f6f6;
+              color: #330;
+              font-family: verdana, georgia, times, serif;
+              margin: ;
+              max-width: 80em;
+              padding: 0 1em;
+              width: auto;
+              font-size: 1rem;
+              line-height: 1.4;
+            }
+            a {
+              color: #1e6b8c;
+              font-size: 1em;
+              text-decoration: none;
+              transition-delay: 0.1s;
+              transition-duration: 0.3s;
+              transition-property: color, background-color;
+              transition-timing-function: linear;
+            }
+            a:visited {
+              color: #6f32ad;
+              font-size: 1em;
+            }
+            a:hover {
+              background: #b6cff9;
+              font-size: 1em;
+              text-decoration: underline;
+            }
+            a:active {
+              background-color: #427fed;
+              color: #fffff6;
+              color: white;
+              font-size: 1em;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+              color: #black;
+              font-weight: bold;
+              line-height: 1.2;
+              margin-bottom: 1em;
+              margin-top: 2em;
+            }
+            h1 {
+              font-size: 2.2em;
+              text-align: center;
+            }
+            h2 {
+              font-size: 1.8em;
+              border-bottom: solid 0.1rem #703820;
+            }
+            h3 {
+              font-size: 1.5em;
+            }
+            h4 {
+              font-size: 1.3em;
+              text-decoration: underline;
+            }
+            h5 {
+              font-size: 1.2em;
+              font-style: italic;
+            }
+            h6 {
+              font-size: 1.1em;
+              margin-bottom: 0.5rem;
+            }
+            pre,
+            code,
+            xmp {
+              font-family: courier;
+              font-size: 1rem;
+              line-height: 1.4;
+              white-space: pre-wrap;
+            }
+            input[type=number]{
+                width: 135px;
+            } 
+            </STYLE>
+             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
 <body>
-<a name="home_title"></a>
-<h1 id="H-E-tip-tokens"><strong>Hive-Engine </strong><span style="color: rgb(231, 2, 2)">tip tokens</span></h1>
+            <big>
+            <br>
+            <center>
+            <div class="w3-container">
+              <a href="../index.html" class="w3-button w3-margin-bottom  w3-round-large w3-red">HE converter</a>
+            </div>
+            </center>
+            <p align="center">
+            <small>LUV token &#8594; USD conversion<br></small>
 
-<p style="text-align:center">When you share or tip on H-E, here's how much the token is currently worth:</p>
+            <table border="0" cellpadding="0" cellspacing="0" width="" align="center">
+            <form name="HEunitconverter">
+            <tbody>
+            <tr>
+              <td><input type="number" onkeyup="HEconvert()" value="" name="HEtoken" size="12"><small><font color="red"> enter a <big>LUV</big> amount</small></td>
+            </tr>
+            <tr>
+              <td><input type="number" onkeyup="LiveConvert()" value="$" name="LiveConvert" size="12"> &#8776; HIVE</td>
+            </tr>
+            <tr>
+              <td><input type="number" onkeyup="USDConvert()" value="$" name="USDConvert" size="12"> &#8776; USD</td>
+            </tr>
+            <tr>
+              <td><input type="number" onload="hivevalueonehetoken()" value="$" name="hivevalueonehetoken" size="12"><small> value of 1 LUV (in HIVE)</small></td>
+            </tr>
+            <tr>
+              <td><input type="number" onload="usdvalueonehetoken()" value="$" name="usdvalueonehetoken" size="12"><small> value of 1 LUV (in USD)</small></td>
+            </tr>
+            </tbody></form></table>
+            <p align="center">
+            
+            <small><small>
+            <a href="" class="w3-button w3-margin-bottom  w3-round-large w3-gray"> LUV &#8594; USD conversion</a> <a href="../FiatToHE/USDtoLUV.html" class="w3-button w3-margin-bottom  w3-round-large w3-black">USD &#8594; LUV conversion</a>
+            <br>
+            <a href="../HIVEtoHE/HIVEtoLUV.html" class="w3-button w3-margin-bottom  w3-round-large w3-black">HIVE &#8594; LUV conversion</a><br>
+            All prices and values are based on the most recent trade.</small></small>
+            <center>
+              <big>
+            <div id="LUVPrice"/>Loading last traded price...</div>
+            <div id="CurrentPrice"/></div>
+              </big>
+            <span style="color:firebrick">HIVE value of one LUV</span>
+            <p>
+            </center>
+            <center>
+              <big>
+            <div id="HIVEPrice"/>Loading last traded price...</div>
+            <div id="USDCurrentPrice"/></div>
+              </big>
+            <span style="color:firebrick">value of 1 HIVE in USD</span>
+            <p>
+            </center>
+            <p>
+            
 
-<p>ALIVE</p>
-<p>BBH</p>
-<p>BEER</p>
-<p>ENGAGE</p>
-<p>LUV</p>
-<p>PIZZA</p>
-<p>WINEX</p>
+            <!-- Fetch HIVE price in USD -->
+            <script language="JavaScript">
+              $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data){
+                        $("#HIVEPrice").text(data["USD"].toFixed(2));
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+            var USDCurrentPrice = document.getElementById('HIVEPrice');
+                USDCurrentPrice.innerHTML = FetchedHIVEPrice.innerHTML;
 
-All prices and values are based on the most recent trade.</small></small>
-<center>
-  <big>
-<div id="LUVPrice"/>Loading last traded price...</div>
-<div id="CurrentPrice"/></div>
-  </big>
-<span style="color:firebrick">HIVE value of one LUV</span>
-<p>
-</center>
-<center>
-  <big>
-<div id="HIVEPrice"/>Loading last traded price...</div>
-<div id="USDCurrentPrice"/></div>
-  </big>
-<span style="color:firebrick">value of 1 HIVE in USD</span>
-<p>
-</center>
-<p>
+            </script>
+            <!-- End HIVE price fetch -->
+            
+            <!-- Fetch Hive Engine token price and conversion engine -->
+            <script language="JavaScript">
+              $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LUV", function(data){
+                        $("#LUVPrice").text(data[0].closePrice).toFixed(2);
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+            var CurrentPrice = document.getElementById('LUVPrice');
+                CurrentPrice.innerHTML = HETPrice.innerHTML;
+            
+            /*
+            cm/inch/feet converter - credit must stay intact for use
+            By Ada Shimar ada@chalktv.com
+            For this script and more,
+            Visit http://javascriptkit.com
+            */
+            function HEconvert(){
+            with (document.HEunitconverter){
+            LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML);
+            USDConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+            hivevalueonehetoken.value = (CurrentPrice.innerHTML);
+            usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+            }
+            }
+            
+            function LiveConvert(){
+            with (document.HEunitconverter){
+            LiveConvert.value = (CurrentPrice.innerHTML);
+            }
+            }
 
+            function USDConvert(){
+            with (document.HEunitconverter){
+            LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+            }
+            }
 
-<!-- Fetch HIVE price in USD -->
-<script language="JavaScript">
-  $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data){
-            $("#HIVEPrice").text(data["USD"].toFixed(2));
-        }).fail(function( dat, textStatus, error ) {
-                    var err = textStatus + ", " + error;
-                    alert(err);
-        });
+            function hivevalueonehetoken(){
+            with (document.HEunitconverter){
+            hivevalueonehetoken.value = (CurrentPrice.innerHTML);
+            }
+            }
 
-var USDCurrentPrice = document.getElementById('HIVEPrice');
-    USDCurrentPrice.innerHTML = FetchedHIVEPrice.innerHTML;
-
-</script>
-<!-- End HIVE price fetch -->
-
-<!-- Fetch Hive Engine token price and conversion engine -->
-<script language="JavaScript">
-  $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LUV", function(data){
-            $("#LUVPrice").text(data[0].closePrice).toFixed(2);
-        }).fail(function( dat, textStatus, error ) {
-                    var err = textStatus + ", " + error;
-                    alert(err);
-        });
-
-var CurrentPrice = document.getElementById('LUVPrice');
-    CurrentPrice.innerHTML = HETPrice.innerHTML;
-
-/*
-cm/inch/feet converter - credit must stay intact for use
-By Ada Shimar ada@chalktv.com
-For this script and more,
-Visit http://javascriptkit.com
-*/
-function HEconvert(){
-with (document.HEunitconverter){
-LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML);
-USDConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-hivevalueonehetoken.value = (CurrentPrice.innerHTML);
-usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-}
-}
-
-function LiveConvert(){
-with (document.HEunitconverter){
-LiveConvert.value = (CurrentPrice.innerHTML);
-}
-}
-
-function USDConvert(){
-with (document.HEunitconverter){
-LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-}
-}
-
-function hivevalueonehetoken(){
-with (document.HEunitconverter){
-hivevalueonehetoken.value = (CurrentPrice.innerHTML);
-}
-}
-
-function usdvalueonehetoken(){
-with (document.HEunitconverter){
-usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-}
-}
-</script>
-<!-- End Hive Engine token price and conversion engine -->
-
-<p>
-<a href="javascript:document.location.reload();"
-ONMOUSEOVER="window.status='Refresh'; return true"
-ONMOUSEOUT="window.status='ahh...success'">
-<center><img src="../images/refresh.png" 
-width="85" height="" border="0" /></a></center>
-<p>
+            function usdvalueonehetoken(){
+            with (document.HEunitconverter){
+            usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+            }
+            }
+            </script>
+            <!-- End Hive Engine token price and conversion engine -->
+            
+            <p>
+            <a href="javascript:document.location.reload();"
+            ONMOUSEOVER="window.status='Refresh'; return true"
+            ONMOUSEOUT="window.status='ahh...success'">
+            <center><img src="../images/refresh.png" 
+            width="85" height="" border="0" /></a></center>
+            <p>
+            
+            
+            <p>
+              <center><a href="https://hive-engine.com/?p=market&t=LUV" target="_blank"><img src="../images/LUV.png" border="0" width="38"></a></center>
 
 
-<p>
-  <center>Made with <a href="https://peakd.com/@luvshares/about" target="_blank"><img src="../images/LUV.png" border="0" width="38"></a> by <a href="https://peakd.com/@crrdlx/about" target="_blank">crrdlx</a></center>
-
-
+<!-- Default Statcounter code for HEconverter
+https://crrdlx.mywebcommunity.org/heconverter/index.html -->
+<script type="text/javascript">
+    var sc_project=12518764; 
+    var sc_invisible=1; 
+    var sc_security="e447a16f"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12518764/0/e447a16f/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
 </body>
 </html>
