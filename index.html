@@ -119,16 +119,14 @@
   
   <p style="text-align:center">When you share or tip on H-E, here's how much the token is currently worth:</p>
 
-  <p style="text-align:left">ALIVE</p>
-  <p style="text-align:left">BBH</p>
-  <p style="text-align:left">BEER</p>
-  <p style="text-align:left">ENGAGE</p>
+  <p style="text-align:left">ALIVE <div id="ALIVEPrice"/>Loading last traded price...</div></p>
+  <p style="text-align:left">BBH <div id="BBHPrice"/>Loading last traded price...</div></p>
+  <p style="text-align:left">BEER <div id="BEERPrice"/>Loading last traded price...</div></p>
+  <p style="text-align:left">ENGAGE <div id="ENGAGEPrice"/>Loading last traded price...</div></p>
   <p style="text-align:left">LUV <div id="LUVPrice"/>Loading last traded price...</div></p>
-  <p style="text-align:left">PIZZA</p>
-  <p style="text-align:left">WINEX</p>
+  <p style="text-align:left">PIZZA <div id="PIZZAPrice"/>Loading last traded price...</div></p>
+  <p style="text-align:left">WINEX <div id="WINEXPrice"/>Loading last traded price...</div></p>
   
-
-
 
             <big>
             <center>
@@ -157,8 +155,45 @@
             </script>
             <!-- End HIVE price fetch -->
             
-            <!-- Fetch Hive Engine token price and conversion engine -->
+            <!-- Fetch Hive Engine token prices -->
             <script language="JavaScript">
+
+              $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=ALIVE", function(data){
+                        $("#ALIVEPrice").text(data[0].closePrice).toFixed(2);
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+              var CurrentPrice = document.getElementById('ALIVEPrice');
+
+              $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=BBH", function(data){
+                        $("#BBHPrice").text(data[0].closePrice).toFixed(2);
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+              var CurrentPrice = document.getElementById('BBHPrice');
+
+              $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=BEER", function(data){
+                        $("#BEERPrice").text(data[0].closePrice).toFixed(2);
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+              var CurrentPrice = document.getElementById('BEERPrice');
+
+              $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=ENGAGE", function(data){
+                        $("#ENGAGEPrice").text(data[0].closePrice).toFixed(2);
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+              var CurrentPrice = document.getElementById('ENGAGEPrice');
+
               $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LUV", function(data){
                         $("#LUVPrice").text(data[0].closePrice).toFixed(2);
                     }).fail(function( dat, textStatus, error ) {
@@ -167,7 +202,24 @@
                     });
             
             var CurrentPrice = document.getElementById('LUVPrice');
-                CurrentPrice.innerHTML = HETPrice.innerHTML;
+
+            $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=PIZZA", function(data){
+                        $("#PIZZAPrice").text(data[0].closePrice).toFixed(2);
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+            var CurrentPrice = document.getElementById('PIZZAPrice');
+
+            $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=WINEX", function(data){
+                        $("#WINEXPrice").text(data[0].closePrice).toFixed(2);
+                    }).fail(function( dat, textStatus, error ) {
+                                var err = textStatus + ", " + error;
+                                alert(err);
+                    });
+            
+            var CurrentPrice = document.getElementById('WINEXPrice');
             
 
             </script>
