@@ -1,19 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple converter to switch Hive-Engine token prices to fiat currency prices and back again.">
-    <title>LUV - HEconverter</title>
-    
+    <title>Hive Tip Tokens Current Value</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="css/layouts/side-menu.css">
-        <!--<![endif]-->
+    <style>
+    body {
+      background: #fefefe;
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 0 22px;
+      font: 18px/1.5 -apple-system, BlinkMacSystemFont, /* MacOS and iOS */
+                   'avenir next', avenir, /* MacOS and iOS */
+                   'Segoe UI', /* Windows */
+                   'lucida grande', /* Older MacOS */
+                   'helvetica neue', helvetica, /* Older MacOS */
+                   'Fira Sans', /* Firefox OS */
+                   roboto, noto, /* Google stuff */
+                   'Droid Sans', /* Old Google stuff */
+                   cantarell, oxygen, ubuntu, /* Linux stuff */
+                   'franklin gothic medium', 'century gothic', /* Windows stuff */
+                   'Liberation Sans', /* Linux */
+                   sans-serif; /* Everything else */;
+      color: #222;
+    }
 <STYLE>
             html {
               font-size: medium;
@@ -108,27 +119,18 @@
   
   <p style="text-align:center">When you share or tip on H-E, here's how much the token is currently worth:</p>
 
-  <p style="text-align:center">ALIVE</p>
-  <p style="text-align:center">BBH</p>
-  <p style="text-align:center">BEER</p>
-  <p style="text-align:center">ENGAGE</p>
-  <p style="text-align:center">LUV</p>
-  <p style="text-align:center">PIZZA</p>
-  <p style="text-align:center">WINEX</p>
+  <p style="text-align:left">ALIVE</p>
+  <p style="text-align:left">BBH</p>
+  <p style="text-align:left">BEER</p>
+  <p style="text-align:left">ENGAGE</p>
+  <p style="text-align:left">LUV <div id="LUVPrice"/>Loading last traded price...</div></p>
+  <p style="text-align:left">PIZZA</p>
+  <p style="text-align:left">WINEX</p>
   
 
 
 
             <big>
-            <br>
-           <center>
-            <big>
-            <div id="LUVPrice"/>Loading last traded price...</div>
-            <div id="CurrentPrice"/></div>
-              </big>
-            <span style="color:firebrick">HIVE value of one LUV</span>
-            <p>
-            </center>
             <center>
               <big>
             <div id="HIVEPrice"/>Loading last traded price...</div>
