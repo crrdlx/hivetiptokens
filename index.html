@@ -127,25 +127,25 @@
       <th>Token</th><th>value of 1 token in HIVE</th><th>Tip amount</th><th>USD value of the tip</th>
     </tr>
     <tr>
-      <td>ALIVE</td><td><input type="number" onkeyup="ALIVEConvert()" value="" name="HEtoken" size="12"><div id="ALIVEPrice"/>Loading last traded price...</div><td>0.1 ALIVE</td><td><div id="ALIVEUSDPrice"/>Loading ALIVEUSDPrice...</div></td>
+      <td>ALIVE</td><td><div id="ALIVEPrice"/>Loading last traded price...</div></td><td>0.1 ALIVE</td><td></td>
     </tr>
     <tr>
-      <td>BBH</td><td><div id="BBHPrice"/>Loading last traded price...</div><td>1 BBH</td><td></td>
+      <td>BBH</td><td><div id="BBHPrice"/>Loading last traded price...</div></td><td>1 BBH</td><td></td>
     </tr>
     <tr>
-      <td>BEER</td><td><div id="BEERPrice"/>Loading last traded price...</div><td>0.1 BEER</td><td></td>
+      <td>BEER</td><td><div id="BEERPrice"/>Loading last traded price...</div></td><td>0.1 BEER</td><td></td>
     </tr>
     <tr>
-      <td>ENGAGE</td><td><div id="ENGAGEPrice"/>Loading last traded price...</div><td>10 ENGAGE*</td></td></td>
+      <td>ENGAGE</td><td><div id="ENGAGEPrice"/>Loading last traded price...</div></td><td>10 ENGAGE*</td></td></td>
     </tr>
     <tr>
-      <td>LUV</td><td><div id="LUVPrice"/>Loading last traded price...</div><td>1 LUV</td></td></td>
+      <td>LUV</td><td><div id="LUVPrice"/>Loading last traded price...</div></td><td>1 LUV</td></td></td>
     </tr>
     <tr>
-      <td>PIZZA</td><td><div id="PIZZAPrice"/>Loading last traded price...</div><td>0.1 PIZZA</td></td><td>
+      <td>PIZZA</td><td><div id="PIZZAPrice"/>Loading last traded price...</div></td><td>0.1 PIZZA</td></td><td>
     </tr>
     <tr>
-      <td>WINEX</td><td><div id="WINEXPrice"/>Loading last traded price...</div><td>0.1 WINEX</td><td></td>
+      <td>WINEX</td><td><div id="WINEXPrice"/>Loading last traded price...</div></td><td>0.1 WINEX</td><td></td>
     </tr>
   </tbody>
   </form>
@@ -165,19 +165,19 @@
             <p>
             
 
-            <!-- Fetch HIVE price in USD -->
-            <script language="JavaScript">
-              $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data){
-                        $("#HIVEPrice").text(data["USD"].toFixed(2));
-                    }).fail(function( dat, textStatus, error ) {
-                                var err = textStatus + ", " + error;
-                                alert(err);
-                    });
-            </script>
-            <!-- End HIVE price fetch -->
+<!-- Fetch HIVE price in USD -->
+    <script language="JavaScript">
+      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data){
+                $("#HIVEPrice").text(data["USD"].toFixed(2));
+            }).fail(function( dat, textStatus, error ) {
+                        var err = textStatus + ", " + error;
+                        alert(err);
+            });
+      </script>
+<!-- End HIVE price fetch -->
 
             
-            <!-- Fetch Hive Engine token prices -->
+<!-- Fetch Hive Engine token prices -->
             <script language="JavaScript">
 
               $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=ALIVE", function(data){
@@ -187,7 +187,8 @@
                                 alert(err);
                     });
             
-              
+                  var CurrentPrice = document.getElementById('ALIVEPrice');
+                      CurrentPrice.innerHTML = ALIVEPrice.innerHTML;
 
               $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=BBH", function(data){
                         $("#BBHPrice").text(data[0].closePrice).toFixed(2);
@@ -242,18 +243,15 @@
                     });
             
             </script>
-            <!-- End Hive Engine token price and conversion engine -->
+<!-- End Hive Engine token price and conversion engine -->
 
 
 
-            <!-- HE tip token calculations-->>
+<!-- HE tip token calculations-->
             <script language="JavaScript">
             function ALIVEconvert(){
             with (document.hivetiptokensform){
-            LiveConvert.value = (HEtoken.value*CurrentPrice.innerHTML);
-            USDConvert.value = (HEtoken.value*CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
-            hivevalueonehetoken.value = (CurrentPrice.innerHTML);
-            usdvalueonehetoken.value = (CurrentPrice.innerHTML*USDCurrentPrice.innerHTML);
+            ALIVEConvert.value = (ALIVEtoken.value*CurrentPrice.innerHTML);
             }
             }
             
@@ -281,7 +279,7 @@
             }
             }
             </script>
-            <!-- End HE Tip Token calculations -->
+<!-- End HE Tip Token calculations -->
 
 
 
