@@ -1,4 +1,4 @@
-RewriteEngine on
+RewriteEngine off
 RewriteCond %{HTTP_HOST} ^crrdlx\.websavvy\.work$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.crrdlx\.websavvy\.work$
 RewriteRule ^/?$ "https\:\/\/crrdlx\.websavvy\.work\/" [R=301,L]
