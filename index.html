@@ -145,10 +145,10 @@
         <thead>
           <tr>
             <th>Token</th>
-            <th>value of 1 token in HIVE</th>
+            <th>value of 1 in HIVE</th>
             <th>Tip amount</th>
-            <th>HIVE value of the tip</th>
-            <th>USD value of the tip</th>
+            <th>tip value in HIVE</th>
+            <th>tip value in USD</th>
           </tr>
         </thead>
         <tbody>
@@ -234,7 +234,7 @@
     <p>
 
 <script language=javascript>
-const toFix = str => (+str).toFixed(6); // perhaps you should do 6 instead?
+const toFix = str => (+str).toFixed(6); // perhaps should do 6 to show more precision?
 const calc = $div => {
   const $row = $div.closest("tr")
   const $cells = $row.find("td");
@@ -245,7 +245,7 @@ const calc = $div => {
   $cells.eq(3).text(isNaN(res) ? "" : res.toFixed(4)); // or (2) but then several will show 0.00
 
 };
-<!-- Fetch HIVE price in USD -->
+// Fetch HIVE price in USD
 $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data) {
   $("#HIVEPrice").text(toFix(data["USD"]));
   calc($("#HIVEPrice"));
@@ -253,10 +253,10 @@ $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", fu
   var err = textStatus + ", " + error;
   alert(err);
 });
-<!-- End HIVE price fetch -->
+// End HIVE price fetch
 
 
-<!-- Fetch Hive Engine token prices -->
+// Fetch Hive Engine token prices
 $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=ALIVE", function(data) {
   $("#ALIVEPrice").text(toFix(data[0].closePrice));
   calc($("#ALIVEPrice"));
@@ -361,7 +361,7 @@ function usdvalueonehetoken() {
   }
 }
 
-<!-- End HE Tip Token calculations -->
+// End HE Tip Token calculations
 </script>
 
 
