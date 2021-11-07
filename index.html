@@ -159,7 +159,7 @@
             </td>
             <td>0.1 ALIVE</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
             <td>BBH</td>
@@ -168,7 +168,7 @@
             </td>
             <td>1 BBH</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
             <td>BEER</td>
@@ -177,7 +177,7 @@
             </td>
             <td>0.1 BEER</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
             <td>ENGAGE</td>
@@ -186,7 +186,7 @@
             </td>
             <td>10 ENGAGE*</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
             <td>LUV</td>
@@ -195,7 +195,7 @@
             </td>
             <td>1 LUV</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
             <td>PIZZA</td>
@@ -204,7 +204,7 @@
             </td>
             <td>0.1 PIZZA</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
             <td>WINEX</td>
@@ -213,7 +213,7 @@
             </td>
             <td>0.1 WINEX</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
@@ -223,11 +223,9 @@
 
   <center><small><small>*ENGAGE may not have a standard tip quantity, as far as I can tell. Instead, a quantity must be set by the tipper. From what I've seen, 10 ENGAGE is a normally tipped amount.</small></small></center>
 
-
   <p>
     <center>
       <div id="HIVEPrice">Loading last traded price in USD...</div>
-
       <span style="color:firebrick">value of 1 HIVE in USD</span>
       <p>
     </center>
@@ -243,6 +241,10 @@ const calc = $div => {
   // console.log($div.attr("id"),val, qty, val * qty)
   const res = val * qty
   $cells.eq(3).text(isNaN(res) ? "" : res.toFixed(4)); // or (2) but then several will show 0.00
+  // figure the USD value below res (HIVE value) times HIVEusd equals token USD value
+  const HIVEusd = 2
+  const valusd = res * HIVEusd
+  $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4)); // or (4) for more precision in decimals
 
 };
 // Fetch HIVE price in USD
@@ -375,7 +377,9 @@ function usdvalueonehetoken() {
       <p>
         <center>
           <small>
-            All the prices are based off of the <b>last</b> trade made. These can vary wildly due to <b>one wild trade</b>. Always be careful and check Hive-Engine token markets for a wider view. <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribal</a> | <a href="https://leodex.io" target="_blank">Leo</a>
+            All the prices are based off of the <b>last</b> trade made. These can vary wildly due to <b>one wild trade</b>. Always be careful and check Hive-Engine token markets for a wider view. 
+            <br>
+            <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribal</a> | <a href="https://leodex.io" target="_blank">Leo</a>
           </small>
         </center>
       <p>
