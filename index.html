@@ -166,7 +166,7 @@
             <td>
               <div id="BBHPrice">Loading last traded price...</div>
             </td>
-            <td>1.0</td>
+            <td>1</td>
             <td></td>
             <td></td>
           </tr>
@@ -193,7 +193,7 @@
             <td>
               <div id="LUVPrice">Loading last traded price...</div>
             </td>
-            <td>1.0</td>
+            <td>1</td>
             <td></td>
             <td></td>
           </tr>
@@ -241,12 +241,12 @@ const calc = $div => {
   // console.log($div.attr("id"),val, qty, val * qty)
   const res = val * qty
   $cells.eq(3).text(isNaN(res) ? "" : res.toFixed(4)); // or (2) but then several will show 0.00
-  // figure the USD value below res (HIVE value) times HIVEusd equals token USD value
+  // figure the USD value: res (HIVE value) times HIVEusd equals token USD value
   const HIVEusd = 2
   const valusd = res * HIVEusd
   $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4)); // or (4) for more precision in decimals
-
 };
+
 // Fetch HIVE price in USD
 $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data) {
   $("#HIVEPrice").text(toFix(data["USD"]));
