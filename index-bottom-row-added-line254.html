@@ -129,6 +129,9 @@
   input[type=number] {
     width: 135px;
   }
+  tr:nth-child(even) {
+  background-color: #dddddd;
+}
   </style>
 
 </head>
@@ -215,10 +218,10 @@
             <td></td>
             <td></td>
           </tr>
-          <tr>
-            <td><a href="https://hive.blog" target="_blank">HIVE</a></td>
+          <tr id="hiveusdrow">
+            <td>Value of 1 Hive in USD:</td>
             <td>
-              <div id="HIVEPrice">Hive price...</div>
+              <div id="HIVEPrice">Loading last traded price in USD...</div>
             </td>
             <td></td>
             <td></td>
@@ -228,17 +231,14 @@
       </table>
     </form>
 
+
   </center>
 
   <center><small><small>*ENGAGE may not have a standard tip quantity. From what I've seen, 10 ENGAGE is a normally tipped amount.</small></small></center>
 
+ 
   <p>
-    <center>
-      <div id="HIVEPrice">Loading last traded price in USD...</div>
-      <span style="color:firebrick">value of 1 HIVE in USD</span>
-      <p>
-    </center>
-    <p>
+
 
 <script language=javascript>
 const toFix = str => (+str).toFixed(6); // perhaps should do 6 to show more precision?
@@ -250,8 +250,11 @@ const calc = $div => {
   // console.log($div.attr("id"),val, qty, val * qty)
   const res = val * qty
   $cells.eq(3).text(isNaN(res) ? "" : res.toFixed(4)); // or (2) but then several will show 0.00
-  // figure the USD value: res (HIVE value) times HIVEusd equals token USD value
-  const HIVEusd = +$cells.eq(2).text().split(" ")[0];
+  // figure the USD value: valusd = res (HIVE value) times HIVEusd (this is the token's USD value)
+  var table = document.getElementById("calcTable"); 
+  var totalRows = document.getElementById("calcTable").rows.length;
+  var totalCol = 5; // enter the number of columns in the table minus 1 (first column is 0 not 1)
+  const HIVEusd = table.rows[8].cells[1].innerHTML;
   const valusd = res * HIVEusd
   $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4)); // or (4) for more precision in decimals
 };

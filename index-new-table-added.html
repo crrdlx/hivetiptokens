@@ -129,6 +129,11 @@
   input[type=number] {
     width: 135px;
   }
+
+
+  tr:nth-child(even) {
+  background-color: #dddddd;
+}
   </style>
 
 </head>
@@ -153,88 +158,101 @@
         </thead>
         <tbody>
           <tr>
-            <td>ALIVE</td>
+            <td><a href="https://www.wearealiveand.social/" target="_blank">ALIVE</a></td>
             <td>
               <div id="ALIVEPrice">Loading last traded price...</div>
             </td>
-            <td>0.1 ALIVE</td>
+            <td>0.1</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
-            <td>BBH</td>
+            <td><a href="https://peakd.com/c/hive-112281/created" target="_blank">BBH</a></td>
             <td>
               <div id="BBHPrice">Loading last traded price...</div>
             </td>
-            <td>1 BBH</td>
+            <td>1</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
-            <td>BEER</td>
+            <td><a href="https://beersaturday.com/" target="_blank">BEER</a></td>
             <td>
               <div id="BEERPrice">Loading last traded price...</div>
             </td>
-            <td>0.1 BEER</td>
+            <td>0.1</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
-            <td>ENGAGE</td>
+            <td><a href="https://peakd.com/@abh12345" target="_blank">ENGAGE*</a></td>
             <td>
               <div id="ENGAGEPrice">Loading last traded price...</div>
             </td>
-            <td>10 ENGAGE*</td>
+            <td>10</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
-            <td>LUV</td>
+            <td><a href="https://peakd.com/@luvshares/about" target="_blank">LUV</a></td>
             <td>
               <div id="LUVPrice">Loading last traded price...</div>
             </td>
-            <td>1 LUV</td>
+            <td>1</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
-            <td>PIZZA</td>
+            <td><a href="https://hive.pizza/" target="_blank">PIZZA</a></td>
             <td>
               <div id="PIZZAPrice">Loading last traded price...</div>
             </td>
-            <td>0.1 PIZZA</td>
+            <td>0.1</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
           <tr>
-            <td>WINEX</td>
+            <td><a href="https://peakd.com/@winex" target="_blank">WINEX</a></td>
             <td>
               <div id="WINEXPrice">Loading last traded price...</div>
             </td>
-            <td>0.1 WINEX</td>
+            <td>0.1</td>
             <td></td>
-            <td>usd</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
     </form>
 
+
+    
+    <table id="HiveUSDTable">
+      <tbody>
+        <tr>
+          <td><span style="color:firebrick">Value of 1 HIVE in USD:</span></td>
+        </tr>
+        <tr>
+          <td><div id="HIVEPrice">Loading last traded price in USD...</div></td>
+        </tr>
+      </tbody>
+    </table>
+
+
   </center>
 
-  <center><small><small>*ENGAGE may not have a standard tip quantity, as far as I can tell. Instead, a quantity must be set by the tipper. From what I've seen, 10 ENGAGE is a normally tipped amount.</small></small></center>
+  <center><small><small>*ENGAGE may not have a standard tip quantity. From what I've seen, 10 ENGAGE is a normally tipped amount.</small></small></center>
 
 
-  <p>
-    <center>
-      <div id="HIVEPrice">Loading last traded price in USD...</div>
-
-      <span style="color:firebrick">value of 1 HIVE in USD</span>
-      <p>
-    </center>
-    <p>
 
 <script language=javascript>
 const toFix = str => (+str).toFixed(6); // perhaps should do 6 to show more precision?
+
+// grab Hive's current USD value from HiveUSDTable
+var table = document.getElementById("HiveUSDTable"); 
+  var totalRows = document.getElementById("HiveUSDTable").rows.length;
+  var totalCol = 0; // enter the number of columns in the table minus 1 (first column is 0 not 1)
+  const HIVEusd = table.rows[1].cells[0].innerHTML;
+
 const calc = $div => {
   const $row = $div.closest("tr")
   const $cells = $row.find("td");
@@ -243,8 +261,11 @@ const calc = $div => {
   // console.log($div.attr("id"),val, qty, val * qty)
   const res = val * qty
   $cells.eq(3).text(isNaN(res) ? "" : res.toFixed(4)); // or (2) but then several will show 0.00
-
+  // figure the USD value: valusd = res (HIVE value) times HIVEusd (this is the token's USD value)
+  const valusd = res * HIVEusd
+  $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4)); // or (4) for more precision in decimals
 };
+
 // Fetch HIVE price in USD
 $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data) {
   $("#HIVEPrice").text(toFix(data["USD"]));
@@ -375,9 +396,20 @@ function usdvalueonehetoken() {
       <p>
         <center>
           <small>
-            All the prices are based off of the <b>last</b> trade made. These can vary wildly due to <b>one wild trade</b>. Always be careful and check Hive-Engine token markets for a wider view. <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribal</a> | <a href="https://leodex.io" target="_blank">Leo</a>
+            All the prices are based off of the <b>last</b> trade made. These can vary dramatically due to <b>one wild trade</b>. Always be careful and check Hive-Engine token markets for a wider view. 
+            <br>
+            <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribal</a> | <a href="https://leodex.io" target="_blank">Leo</a>
           </small>
         </center>
+
+      <center>
+        <p>
+          <small>Check other Hive-Engine token prices/values:</small>
+        </p>
+        <a href="http://crrdlx.websavvy.work/heconverter/index.html" class="w3-button w3-margin-bottom w3-round-large w3-green">HEconverter</a>
+      </center>
+
+
       <p>
             <center><small>Made with <a href="https://peakd.com/@luvshares/about" target="_blank"><img src="images/LUV.png" border="0" width="38"></a> by <a href="https://peakd.com/@crrdlx/about" target="_blank">crrdlx</a></small></center>
 
