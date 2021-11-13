@@ -192,6 +192,15 @@
             <td></td>
           </tr>
           <tr>
+            <td><a href="https://lolztoken.com/" target="_blank">LOLZ</a></td>
+            <td>
+              <div id="LOLZPrice">Loading last traded price...</div>
+            </td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
             <td><a href="https://peakd.com/@luvshares/about" target="_blank">LUV</a></td>
             <td>
               <div id="LUVPrice">Loading last traded price...</div>
@@ -296,6 +305,16 @@ $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=BEER", function
 $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=ENGAGE", function(data) {
   $("#ENGAGEPrice").text(toFix(data[0].closePrice));
   calc($("#ENGAGEPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+
+$.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LOLZ", function(data) {
+  $("#LOLZPrice").text(toFix(data[0].closePrice));
+  calc($("#LOLZPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
