@@ -271,6 +271,9 @@ const calc = $div => {
 
   
 // Fetch HIVE USD value from API
+
+
+
 var HIVEusd;
 
 fetch('https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD')
@@ -279,6 +282,8 @@ fetch('https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD')
   .then(() => console.log(HIVEusd))
 // End fetch
 
+
+  HIVEusd = https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD
   const valusd = res * 2
   $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4)); // or (4) for more precision in decimals
 };
