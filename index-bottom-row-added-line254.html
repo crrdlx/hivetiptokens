@@ -218,10 +218,10 @@
             <td></td>
             <td></td>
           </tr>
-          <tr id="hiveusdrow">
+          <tr id="HiveUSDRow">
             <td>Value of 1 Hive in USD:</td>
             <td>
-              <div id="HIVEPrice">Loading last traded price in USD...</div>
+              <div id="HIVETablePrice">Loading last traded price in USD...</div>
             </td>
             <td></td>
             <td></td>
@@ -234,14 +234,28 @@
 
   </center>
 
-  <center><small><small>*ENGAGE may not have a standard tip quantity. From what I've seen, 10 ENGAGE is a normally tipped amount.</small></small></center>
+  <center><small><small>*ENGAGE may not have a standard tip quantity. It seems that 10 ENGAGE is a normally tipped amount.</small></small></center>
 
  
   <p>
 
 
+<button onclick="showCell()">Show Cell Value</button>
+
 <script language=javascript>
 const toFix = str => (+str).toFixed(6); // perhaps should do 6 to show more precision?
+
+
+function showCell() {
+    var sTableName = document.getElementById("calcTable");
+
+    for (var i=8;i<sTableName.rows.length;i++) {
+        var col1= sTableName.rows[i].cells[1].innerText;
+        alert(col1)
+    }
+}
+
+
 const calc = $div => {
   const $row = $div.closest("tr")
   const $cells = $row.find("td");
@@ -254,7 +268,7 @@ const calc = $div => {
   var table = document.getElementById("calcTable"); 
   var totalRows = document.getElementById("calcTable").rows.length;
   var totalCol = 5; // enter the number of columns in the table minus 1 (first column is 0 not 1)
-  const HIVEusd = table.rows[8].cells[1].innerHTML;
+  const HIVEusd = 3
   const valusd = res * HIVEusd
   $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4)); // or (4) for more precision in decimals
 };
