@@ -210,6 +210,15 @@
             <td></td>
           </tr>
           <tr>
+            <td><a href="https://discord.com/invite/KCvuNTEjWw" target="_blank">PGM</a></td>
+            <td>
+              <div id="PGMPrice">Loading last traded price...</div>
+            </td>
+            <td>0.1</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
             <td><a href="https://hive.pizza/" target="_blank">PIZZA</a></td>
             <td>
               <div id="PIZZAPrice">Loading last traded price...</div>
@@ -325,6 +334,16 @@ $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LOLZ", function
 $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LUV", function(data) {
   $("#LUVPrice").text(toFix(data[0].closePrice));
   calc($("#LUVPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+
+$.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=PGM", function(data) {
+  $("#PGMPrice").text(toFix(data[0].closePrice));
+  calc($("#PGMPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
