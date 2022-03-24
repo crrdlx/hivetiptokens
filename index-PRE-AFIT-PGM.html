@@ -156,16 +156,6 @@
         </thead>
         <tbody>
           <tr>
-            <td><a href="https://actifit.io" target="_blank">AFIT</a></td>
-            <td>
-              <div id="AFITPrice">Loading last traded price...</div>
-            </td>
-            <td>10</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-          <tr>
             <td><a href="https://www.wearealiveand.social/" target="_blank">ALIVE</a></td>
             <td>
               <div id="ALIVEPrice">Loading last traded price...</div>
@@ -174,7 +164,6 @@
             <td></td>
             <td></td>
           </tr>
-          
           <tr>
             <td><a href="https://peakd.com/c/hive-112281/created" target="_blank">BBH</a></td>
             <td>
@@ -184,7 +173,6 @@
             <td></td>
             <td></td>
           </tr>
-          
           <tr>
             <td><a href="https://beersaturday.com/" target="_blank">BEER</a></td>
             <td>
@@ -194,7 +182,6 @@
             <td></td>
             <td></td>
           </tr>
-          
           <tr>
             <td><a href="https://peakd.com/@abh12345" target="_blank">ENGAGE*</a></td>
             <td>
@@ -204,7 +191,6 @@
             <td></td>
             <td></td>
           </tr>
-          
           <tr>
             <td><a href="https://peakd.com/hive/@hivebits/about" target="_blank">HBIT</a></td>
             <td>
@@ -214,7 +200,6 @@
             <td></td>
             <td></td>
           </tr>
-          
           <tr>
             <td><a href="https://lolztoken.com/" target="_blank">LOLZ</a></td>
             <td>
@@ -224,7 +209,6 @@
             <td></td>
             <td></td>
           </tr>
-          
           <tr>
             <td><a href="https://peakd.com/@luvshares/about" target="_blank">LUV</a></td>
             <td>
@@ -234,17 +218,6 @@
             <td></td>
             <td></td>
           </tr>
-          
-          <tr>
-            <td><a href="https://discord/gg/KCvuNTEjWw" target="_blank">PGM</a></td>
-            <td>
-              <div id="PGMPrice">Loading last traded price...</div>
-            </td>
-            <td>0.1</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
           <tr>
             <td><a href="https://hive.pizza/" target="_blank">PIZZA</a></td>
             <td>
@@ -254,7 +227,6 @@
             <td></td>
             <td></td>
           </tr>
-          
           <tr>
             <td><a href="https://peakd.com/@winex" target="_blank">WINEX</a></td>
             <td>
@@ -264,14 +236,13 @@
             <td></td>
             <td></td>
           </tr>
-          
         </tbody>
       </table>
     </form>
 
   </center>
 
-  <center><small><small>*ENGAGE may not have a standard tip quantity, but 10 ENGAGE is a normally tipped amount.</small></small></center>
+  <center><small><small>*ENGAGE may not have a standard tip quantity. From what I've seen, 10 ENGAGE is a normally tipped amount.</small></small></center>
 
   <p>
     <center>
@@ -315,16 +286,6 @@ const calc = $div => {
 // End HIVE price retrieve
 
 // Retrieve Hive-Engine token prices
-$.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=AFIT", function(data) {
-  $("#AFITPrice").text(toFix(data[0].closePrice));
-  calc($("#AFITPrice"));
-}).fail(function(dat, textStatus, error) {
-  var err = textStatus + ", " + error;
-  alert(err);
-});
-
-
-
 $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=ALIVE", function(data) {
   $("#ALIVEPrice").text(toFix(data[0].closePrice));
   calc($("#ALIVEPrice"));
@@ -388,15 +349,6 @@ $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LOLZ", function
 $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LUV", function(data) {
   $("#LUVPrice").text(toFix(data[0].closePrice));
   calc($("#LUVPrice"));
-}).fail(function(dat, textStatus, error) {
-  var err = textStatus + ", " + error;
-  alert(err);
-});
-
-
-$.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=PGM", function(data) {
-  $("#PGMPrice").text(toFix(data[0].closePrice));
-  calc($("#PGMPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
