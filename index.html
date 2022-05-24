@@ -214,6 +214,16 @@
             <td></td>
             <td></td>
           </tr>
+
+          <tr>
+            <td><a href="https://peakd.com/hive-124452/@hive-124452/introducing-the-lady" target="_blank">LOH</a></td>
+            <td>
+              <div id="LOHPrice">Loading last traded price...</div>
+            </td>
+            <td>0.1</td>
+            <td></td>
+            <td></td>
+          </tr>
           
           <tr>
             <td><a href="https://lolztoken.com/" target="_blank">LOLZ</a></td>
@@ -368,6 +378,16 @@ $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=ENGAGE", functi
 $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=HBIT", function(data) {
   $("#HBITPrice").text(toFix(data[0].closePrice));
   calc($("#HBITPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+
+$.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=LOH", function(data) {
+  $("#LOHPrice").text(toFix(data[0].closePrice));
+  calc($("#LOHPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
