@@ -194,6 +194,16 @@
             <td></td>
             <td></td>
           </tr>
+
+          <tr>
+            <td><a href="https://www.CTPtalk.com" target="_blank">CTP+</a></td>
+            <td>
+              <div id="CTPPrice">Loading last traded price...</div>
+            </td>
+            <td>0.1</td>
+            <td></td>
+            <td></td>
+          </tr>
           
           <tr>
             <td><a href="https://peakd.com/@abh12345" target="_blank">ENGAGE*</a></td>
@@ -281,7 +291,7 @@
 
   </center>
 
-  <center><small><small>*ENGAGE may not have a standard tip quantity, but 10 ENGAGE is a normally tipped amount.</small></small></center>
+  <center><small><small>+CTP is tipped between 0.1 and 0.5 CTP, depending on the staked amount. | *ENGAGE may not have a standard tip quantity, but 10 ENGAGE is a normally tipped amount.</small></small></center><br>
 
   <p>
     <center>
@@ -358,6 +368,16 @@ $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=BBH", function(
 $.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=BEER", function(data) {
   $("#BEERPrice").text(toFix(data[0].closePrice));
   calc($("#BEERPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+
+$.getJSON("https://accounts.hive-engine.com/marketHistory?symbol=CTP", function(data) {
+  $("#CTPPrice").text(toFix(data[0].closePrice));
+  calc($("#CTPPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
