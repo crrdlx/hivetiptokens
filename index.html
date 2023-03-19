@@ -226,6 +226,16 @@
           </tr>
 
           <tr>
+            <td><a href="https://peakd.com/hive-139531/@hannes-stoffel/introducing-hugbot" target="_blank">HUG</a></td>
+            <td>
+              <div id="HUGPrice">Loading last traded price...</div>
+            </td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
             <td><a href="https://peakd.com/hive-124452/@hive-124452/introducing-the-lady" target="_blank">LOH</a></td>
             <td>
               <div id="LOHPrice">Loading last traded price...</div>
@@ -397,6 +407,15 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=ENGAGE", functio
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=HBIT", function(data) {
   $("#HBITPrice").text(toFix(data[0].closePrice));
+  calc($("#HBITPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+$.getJSON("https://history.hive-engine.com/marketHistory?symbol=HUG", function(data) {
+  $("#HUGPrice").text(toFix(data[0].closePrice));
   calc($("#HBITPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
