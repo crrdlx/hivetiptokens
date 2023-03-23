@@ -416,12 +416,11 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=HBIT", function(
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=HUG", function(data) {
   $("#HUGPrice").text(toFix(data[0].closePrice));
-  calc($("#HBITPrice"));
+  calc($("#HUGPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
 });
-
 
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LOH", function(data) {
