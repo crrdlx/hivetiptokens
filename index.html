@@ -284,6 +284,16 @@
             <td></td>
             <td></td>
           </tr>
+
+          <tr>
+            <td><a href="https://sloth.buzz/" target="_blank">SLOTHBUZZ</a></td>
+            <td>
+              <div id="SLOTHBUZZPrice">Loading last traded price...</div>
+            </td>
+            <td>0.01</td>
+            <td></td>
+            <td></td>
+          </tr>
           
           <tr>
             <td><a href="https://peakd.com/@winex" target="_blank">WINEX</a></td>
@@ -465,6 +475,16 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PGM", function(d
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PIZZA", function(data) {
   $("#PIZZAPrice").text(toFix(data[0].closePrice));
   calc($("#PIZZAPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+
+$.getJSON("https://history.hive-engine.com/marketHistory?symbol=SLOTHBUZZ", function(data) {
+  $("#SLOTHBUZZPrice").text(toFix(data[0].closePrice));
+  calc($("#SLOTHBUZZPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
