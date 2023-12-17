@@ -286,6 +286,16 @@
           </tr>
 
           <tr>
+            <td><a href="https://hive.blog/trending/hive-132248" target="_blank">VSC</a></td>
+            <td>
+              <div id="VSCPrice">Loading last traded price...</div>
+            </td>
+            <td>0.1</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
             <td><a href="https://hive.blog/@slothbuzz" target="_blank">SLOTHBUZZ</a></td>
             <td>
               <div id="SLOTHBUZZPrice">Loading last traded price...</div>
@@ -486,6 +496,17 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PIZZA", function
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=SLOTHBUZZ", function(data) {
   $("#SLOTHBUZZPrice").text(toFix(data[0].closePrice));
   calc($("#SLOTHBUZZPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+
+
+$.getJSON("https://history.hive-engine.com/marketHistory?symbol=VSC", function(data) {
+  $("#VSCPrice").text(toFix(data[0].closePrice));
+  calc($("#VSCPrice"));
 }).fail(function(dat, textStatus, error) {
   var err = textStatus + ", " + error;
   alert(err);
