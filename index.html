@@ -462,7 +462,6 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LOLZ", function(
 });
 
 
-
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LUV", function(data) {
   $("#LUVPrice").text(toFix(data[0].closePrice));
   calc($("#LUVPrice"));
@@ -492,7 +491,6 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PIZZA", function
 
 
 
-
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=SLOTHBUZZ", function(data) {
   $("#SLOTHBUZZPrice").text(toFix(data[0].closePrice));
   calc($("#SLOTHBUZZPrice"));
@@ -500,7 +498,6 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=SLOTHBUZZ", func
   var err = textStatus + ", " + error;
   alert(err);
 });
-
 
 
 
