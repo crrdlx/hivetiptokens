@@ -286,6 +286,16 @@
           </tr>
 
           <tr>
+            <td><a href="https://hive.blog/trending/hive-132248" target="_blank">VSC</a></td>
+            <td>
+              <div id="VSCPrice">Loading last traded price...</div>
+            </td>
+            <td>0.1</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
             <td><a href="https://hive.blog/@slothbuzz" target="_blank">SLOTHBUZZ</a></td>
             <td>
               <div id="SLOTHBUZZPrice">Loading last traded price...</div>
@@ -494,6 +504,17 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=SLOTHBUZZ", func
 
 
 
+$.getJSON("https://history.hive-engine.com/marketHistory?symbol=VSC", function(data) {
+  $("#VSCPrice").text(toFix(data[0].closePrice));
+  calc($("#VSCPrice"));
+}).fail(function(dat, textStatus, error) {
+  var err = textStatus + ", " + error;
+  alert(err);
+});
+
+
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=WINEX", function(data) {
   $("#WINEXPrice").text(toFix(data[0].closePrice));
   calc($("#WINEXPrice"));
@@ -553,7 +574,7 @@ function usdvalueonehetoken() {
           <small>
             All the prices are based off of the <b>last</b> trade made. These can vary dramatically due to <b>one wild trade</b>. Always be careful and check Hive-Engine token markets for a wider view. 
             <br>
-            <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribal</a> | <a href="https://leodex.io" target="_blank">Leo</a>
+            <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribaldex</a> (recommended)
           </small>
         </center>
 
