@@ -140,6 +140,8 @@
   <a name="home_title"></a>
   <h1 id="H-E-tip-tokens"><strong>Hive-Engine </strong><span style="color: rgb(231, 2, 2)">Tip Tokens</span></h1>
 
+  <p style="text-align:center">When you share or tip on H-E, here's how much the tip is worth:</p>
+
   <center>
     <form name="hivetiptokensform">
       <table id="calcTable">
@@ -147,10 +149,9 @@
           <tr>
             <th>Token</th>
             <th>Value of 1 in HIVE</th>
-            <th>Tip size</th>
-            <th>Tip in HIVE</th>
-            <th>Tip in USD</th>
-            <th>Tip in sats シ</th>
+            <th>Tip amount</th>
+            <th>Tip value in HIVE</th>
+            <th>Tip value in USD</th>
           </tr>
         </thead>
         <tbody>
@@ -160,7 +161,6 @@
               <div id="AFITPrice">Loading last traded price...</div>
             </td>
             <td>10</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -173,7 +173,6 @@
             <td>0.1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
           
           <tr>
@@ -182,7 +181,6 @@
               <div id="BBHPrice">Loading last traded price...</div>
             </td>
             <td>1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -195,7 +193,6 @@
             <td>0.1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
 
           <tr>
@@ -204,7 +201,6 @@
               <div id="BLAQPrice">Loading last traded price...</div>
             </td>
             <td>1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -217,7 +213,6 @@
             <td>1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
 
           <tr>
@@ -226,7 +221,6 @@
               <div id="BLAQEMRLDPrice">Loading last traded price...</div>
             </td>
             <td>1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -239,7 +233,6 @@
             <td>0.1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
           
           <tr>
@@ -248,7 +241,6 @@
               <div id="ENGAGEPrice">Loading last traded price...</div>
             </td>
             <td>10</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -261,7 +253,6 @@
             <td>1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
 
           <tr>
@@ -270,7 +261,6 @@
               <div id="HUGPrice">Loading last traded price...</div>
             </td>
             <td>1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -283,7 +273,6 @@
             <td>1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
 
           <tr>
@@ -292,7 +281,6 @@
               <div id="LOHPrice">Loading last traded price...</div>
             </td>
             <td>0.1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -305,7 +293,6 @@
             <td>1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
           
           <tr>
@@ -314,7 +301,6 @@
               <div id="LUVPrice">Loading last traded price...</div>
             </td>
             <td>1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -327,7 +313,6 @@
             <td>0.1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
 
           <tr>
@@ -336,7 +321,6 @@
               <div id="PIMPPrice">Loading last traded price...</div>
             </td>
             <td>1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -349,7 +333,6 @@
             <td>0.1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
 
           <tr>
@@ -358,7 +341,6 @@
               <div id="VSCPrice">Loading last traded price...</div>
             </td>
             <td>0.1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -371,7 +353,6 @@
             <td>0.1</td>
             <td></td>
             <td></td>
-            <td></td>
           </tr>
           
           <tr>
@@ -380,7 +361,6 @@
               <div id="WINEXPrice">Loading last traded price...</div>
             </td>
             <td>0.1</td>
-            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -397,60 +377,42 @@
     <center>
       <div id="HIVEPrice">Loading last traded price in USD...</div>
       <span style="color:firebrick">value of 1 HIVE in USD</span>
-      <div id="BTCPrice">Loading last traded price in USD...</div>
-      <span style="color:darkorange">value of 1 BTC in USD</span>
       <p>
     </center>
     <p>
 
 <script language=javascript>
-// Function to add comma separators
-const addCommas = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-const toFix = str => (+str).toFixed(6);
+const toFix = str => (+str).toFixed(6); // perhaps should do 6 to show more precision?
 const calc = $div => {
-  const $row = $div.closest("tr");
+  
+  
+// Begin calculations for table of live values
+  const $row = $div.closest("tr")
   const $cells = $row.find("td");
   const qty = +$cells.eq(2).text().split(" ")[0];
-  const val = $div.text();
+  const val = $div.text()
+  // console.log($div.attr("id"),val, qty, val * qty)
+  const res = val * qty
+  $cells.eq(3).text(isNaN(res) ? "" : res.toFixed(4)); // or (2) but then several will show 0.00
   
-  // Calculate HIVE value (reverted to original format)
-  const hiveValue = val * qty;
-  $cells.eq(3).text(isNaN(hiveValue) ? "" : hiveValue.toFixed(4));
-  
-  // Calculate USD value (reverted to original format)
-  const HIVEusd = parseFloat(document.getElementById("HIVEPrice").innerHTML.replace(/,/g, ''));
-  const valusd = hiveValue * HIVEusd;
-  $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4));
-  
-  // Calculate sats value (keep new format with commas and 2 decimals)
-  const BTCusd = document.getElementById("BTCPrice") ? parseFloat(document.getElementById("BTCPrice").innerHTML.replace(/,/g, '')) : 0;
-  if (BTCusd > 0) {
-    const satsValue = (valusd / BTCusd) * 100000000; // Convert USD to BTC then to sats
-    $cells.eq(5).text(isNaN(satsValue) ? "" : addCommas(satsValue.toFixed(2)));
-  }
+// figure the USD value: res (HIVE value) times HIVEusd equals token USD value
+  const HIVEusd = document.getElementById("HIVEPrice").innerHTML;
+  const valusd = res * HIVEusd;
+  $cells.eq(4).text(isNaN(valusd) ? "" : valusd.toFixed(4)); // or (4) for more precision in decimals
 };
+// End table price calculations
+  
 
-// Retrieve Bitcoin price in USD
-$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", function(data) {
-  $("#BTCPrice").text(addCommas((+data["USD"]).toFixed(2)));
-  // Recalculate all rows after BTC price is loaded
-  $("#calcTable tbody tr").each(function() {
-    calc($(this).find("td div[id$='Price']"));
-  });
-}).fail(function(dat, textStatus, error) {
-  var err = textStatus + ", " + error;
-  alert("BTC Price Error: " + err);
-});
-
+  
 // Retrieve HIVE price in USD
-$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data) {
-  $("#HIVEPrice").text(addCommas((+data["USD"]).toFixed(2)));
-  calc($("#HIVEPrice"));
-}).fail(function(dat, textStatus, error) {
-  var err = textStatus + ", " + error;
-  alert(err);
-});
+  $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=HIVE&tsyms=USD", function(data) {
+    $("#HIVEPrice").text(toFix(data["USD"]));
+    calc($("#HIVEPrice"));
+  }).fail(function(dat, textStatus, error) {
+    var err = textStatus + ", " + error;
+    alert(err);
+  });
+// End HIVE price retrieve
 
 // Retrieve Hive-Engine token prices
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=AFIT", function(data) {
@@ -461,6 +423,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=AFIT", function(
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=ALIVE", function(data) {
   $("#ALIVEPrice").text(toFix(data[0].closePrice));
   calc($("#ALIVEPrice"));
@@ -468,6 +432,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=ALIVE", function
   var err = textStatus + ", " + error;
   alert(err);
 });
+
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BBH", function(data) {
   $("#BBHPrice").text(toFix(data[0].closePrice));
@@ -477,6 +443,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BBH", function(d
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BEER", function(data) {
   $("#BEERPrice").text(toFix(data[0].closePrice));
   calc($("#BEERPrice"));
@@ -484,6 +452,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BEER", function(
   var err = textStatus + ", " + error;
   alert(err);
 });
+
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BLAQ", function(data) {
   $("#BLAQPrice").text(toFix(data[0].closePrice));
@@ -493,6 +463,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BLAQ", function(
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BLAQGOLD", function(data) {
   $("#BLAQGOLDPrice").text(toFix(data[0].closePrice));
   calc($("#BLAQGOLDPrice"));
@@ -500,6 +472,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BLAQGOLD", funct
   var err = textStatus + ", " + error;
   alert(err);
 });
+
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BLAQEMRLD", function(data) {
   $("#BLAQEMRLDPrice").text(toFix(data[0].closePrice));
@@ -509,6 +483,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=BLAQEMRLD", func
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=CTP", function(data) {
   $("#CTPPrice").text(toFix(data[0].closePrice));
   calc($("#CTPPrice"));
@@ -516,6 +492,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=CTP", function(d
   var err = textStatus + ", " + error;
   alert(err);
 });
+
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=ENGAGE", function(data) {
   $("#ENGAGEPrice").text(toFix(data[0].closePrice));
@@ -525,6 +503,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=ENGAGE", functio
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=HBIT", function(data) {
   $("#HBITPrice").text(toFix(data[0].closePrice));
   calc($("#HBITPrice"));
@@ -532,6 +512,7 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=HBIT", function(
   var err = textStatus + ", " + error;
   alert(err);
 });
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=IDD", function(data) {
   $("#IDDPrice").text(toFix(data[0].closePrice));
@@ -541,6 +522,7 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=IDD", function(d
   alert(err);
 });
 
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=HUG", function(data) {
   $("#HUGPrice").text(toFix(data[0].closePrice));
   calc($("#HUGPrice"));
@@ -548,6 +530,7 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=HUG", function(d
   var err = textStatus + ", " + error;
   alert(err);
 });
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LOH", function(data) {
   $("#LOHPrice").text(toFix(data[0].closePrice));
@@ -557,6 +540,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LOH", function(d
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LOLZ", function(data) {
   $("#LOLZPrice").text(toFix(data[0].closePrice));
   calc($("#LOLZPrice"));
@@ -564,6 +549,7 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LOLZ", function(
   var err = textStatus + ", " + error;
   alert(err);
 });
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LUV", function(data) {
   $("#LUVPrice").text(toFix(data[0].closePrice));
@@ -573,6 +559,7 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=LUV", function(d
   alert(err);
 });
 
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PGM", function(data) {
   $("#PGMPrice").text(toFix(data[0].closePrice));
   calc($("#PGMPrice"));
@@ -580,6 +567,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PGM", function(d
   var err = textStatus + ", " + error;
   alert(err);
 });
+
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PIMP", function(data) {
   $("#PIMPPrice").text(toFix(data[0].closePrice));
@@ -589,6 +578,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PIMP", function(
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PIZZA", function(data) {
   $("#PIZZAPrice").text(toFix(data[0].closePrice));
   calc($("#PIZZAPrice"));
@@ -596,6 +587,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=PIZZA", function
   var err = textStatus + ", " + error;
   alert(err);
 });
+
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=SLOTHBUZZ", function(data) {
   $("#SLOTHBUZZPrice").text(toFix(data[0].closePrice));
@@ -605,6 +598,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=SLOTHBUZZ", func
   alert(err);
 });
 
+
+
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=VSC", function(data) {
   $("#VSCPrice").text(toFix(data[0].closePrice));
   calc($("#VSCPrice"));
@@ -612,6 +607,8 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=VSC", function(d
   var err = textStatus + ", " + error;
   alert(err);
 });
+
+
 
 $.getJSON("https://history.hive-engine.com/marketHistory?symbol=WINEX", function(data) {
   $("#WINEXPrice").text(toFix(data[0].closePrice));
@@ -621,7 +618,11 @@ $.getJSON("https://history.hive-engine.com/marketHistory?symbol=WINEX", function
   alert(err);
 });
 
-// HE tip token calculations
+<!-- End Hive Engine token price and conversion engine -->
+
+
+
+<!-- HE tip token calculations-->
 function ALIVEconvert() {
   with(document.hivetiptokensform) {
     ALIVEConvert.value = (ALIVEtoken.value * CurrentPrice.innerHTML);
@@ -651,9 +652,12 @@ function usdvalueonehetoken() {
     usdvalueonehetoken.value = (CurrentPrice.innerHTML * USDCurrentPrice.innerHTML);
   }
 }
-// End HE Tip Token calculations
 
+// End HE Tip Token calculations
 </script>
+
+
+
       <p>
         <a href="javascript:document.location.reload();" ONMOUSEOVER="window.status='Refresh'; return true" ONMOUSEOUT="window.status='ahh...success'">
           <center><img src="images/refresh.png" width="45" height="" border="0" /></a>
@@ -676,11 +680,13 @@ function usdvalueonehetoken() {
           <a href="https://heconverter.on.fleek.co" class="w3-button w3-margin-bottom w3-round-large w3-red">HEconverter</a> <a href="https://sbc.on.fleek.co" class="w3-button w3-margin-bottom w3-round-large w3-orange">Satoshi Bitcoin Converter</a>
         </center>
 
+
       <p>
         <center>
         <small>This tool is <a href="https://github.com/crrdlx/hivetiptokens" target="_blank">open source here</a>. Help is welcome.</small>
         <br>
         <small>Made with <a href="https://peakd.com/@luvshares/about" target="_blank"><img src="images/luv.png" border="0" width="38"></a> by <a href="https://peakd.com/@crrdlx/about" target="_blank">crrdlx</a></small></center>
+
 
 <!-- Default Statcounter code for Hive Engine Tip Tokens
 http://hetiptokens.on-fleek.app -->
