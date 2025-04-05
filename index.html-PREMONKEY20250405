@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   
 <style>
   body {
@@ -131,9 +131,9 @@
     width: 135px;
   }
   tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-</style>
+  background-color: #dddddd;
+}
+  </style>
 </head>
 
 <body>
@@ -388,6 +388,7 @@
         </tbody>
       </table>
     </form>
+
   </center>
 
   <center><small><small>+CTP is tipped between 0.1 and 0.5 CTP, depending on the staked amount. | *ENGAGE may not have a standard tip quantity, but 10 ENGAGE is a normally tipped amount.</small></small></center><br>
@@ -398,10 +399,11 @@
       <span style="color:firebrick">value of 1 HIVE in USD</span>
       <div id="BTCPrice">Loading last traded price in USD...</div>
       <span style="color:darkorange">value of 1 BTC in USD</span>
+      <p>
     </center>
-  </p>
+    <p>
 
-<script language="javascript">
+<script language=javascript>
 // Function to add comma separators
 const addCommas = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
@@ -650,56 +652,52 @@ function usdvalueonehetoken() {
   }
 }
 // End HE Tip Token calculations
+
 </script>
+      <p>
+        <a href="javascript:document.location.reload();" ONMOUSEOVER="window.status='Refresh'; return true" ONMOUSEOUT="window.status='ahh...success'">
+          <center><img src="images/refresh.png" width="45" height="" border="0" /></a>
+        </center>
+        <p>
 
-  <p>
-    <center>
-      <a href="javascript:document.location.reload();" ONMOUSEOVER="window.status='Refresh'; return true" ONMOUSEOUT="window.status='ahh...success'">
-        <img src="images/refresh.png" width="45" height="" border="0" />
-      </a>
-    </center>
-  </p>
+      <p>
+        <center>
+          <small>
+            All the prices are based off of the <b>last</b> trade made. These can vary dramatically due to <b>one wild trade</b>. Always be careful and check Hive-Engine token markets for a wider view. 
+            <br>
+            <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribaldex</a> (recommended)
+          </small>
+        </center>
 
-  <p>
-    <center>
-      <small>
-        All the prices are based off of the <b>last</b> trade made. These can vary dramatically due to <b>one wild trade</b>. Always be careful and check Hive-Engine token markets for a wider view. 
+        <center>
+          <p>
+            <small>Check other Hive-Engine token or crypto prices/values:</small>
+          </p>
+          <a href="https://heconverter.on.fleek.co" class="w3-button w3-margin-bottom w3-round-large w3-red">HEconverter</a> <a href="https://sbc.on.fleek.co" class="w3-button w3-margin-bottom w3-round-large w3-orange">Satoshi Bitcoin Converter</a>
+        </center>
+
+      <p>
+        <center>
+        <small>This tool is <a href="https://github.com/crrdlx/hivetiptokens" target="_blank">open source here</a>. Help is welcome.</small>
         <br>
-        <a href="https://hive-engine.com" target="_blank">Hive-Engine</a> | <a href="https://tribaldex.com" target="_blank">Tribaldex</a> (recommended)
-      </small>
-    </center>
-  </p>
+        <small>Made with <a href="https://peakd.com/@luvshares/about" target="_blank"><img src="images/luv.png" border="0" width="38"></a> by <a href="https://peakd.com/@crrdlx/about" target="_blank">crrdlx</a></small></center>
 
-  <center>
-    <p>
-      <small>Check other Hive-Engine token or crypto prices/values:</small>
-    </p>
-    <a href="https://heconverter.on.fleek.co" class="w3-button w3-margin-bottom w3-round-large w3-red">HEconverter</a>
-    <a href="https://sbc.on.fleek.co" class="w3-button w3-margin-bottom w3-round-large w3-orange">Satoshi Bitcoin Converter</a>
-  </center>
-
-  <p>
-    <center>
-      <small>This tool is <a href="https://github.com/crrdlx/hivetiptokens" target="_blank">open source here</a>. Help is welcome.</small>
-      <br>
-      <small>Made with <a href="https://peakd.com/@luvshares/about" target="_blank"><img src="images/luv.png" border="0" width="38"></a> by <a href="https://peakd.com/@crrdlx/about" target="_blank">crrdlx</a></small>
-    </center>
-  </p>
-
-<!-- Default Statcounter code for Hive Engine Tip Tokens http://hetiptokens.on-fleek.app -->
+<!-- Default Statcounter code for Hive Engine Tip Tokens
+http://hetiptokens.on-fleek.app -->
 <script type="text/javascript">
   var sc_project=12682004; 
   var sc_invisible=1; 
   var sc_security="66377264"; 
-</script>
-<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript>
-  <div class="statcounter">
-    <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
-      <img class="statcounter" src="https://c.statcounter.com/12682004/0/66377264/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade">
-    </a>
-  </div>
-</noscript>
-<!-- End of Statcounter Code -->
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+  href="https://statcounter.com/" target="_blank"><img
+  class="statcounter"
+  src="https://c.statcounter.com/12682004/0/66377264/1/"
+  alt="Web Analytics"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+  <!-- End of Statcounter Code -->
 </body>
 </html>
